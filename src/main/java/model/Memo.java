@@ -1,5 +1,7 @@
 package model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Memo {
@@ -10,26 +12,18 @@ public class Memo {
 		this.date = date;
 		this.memo = memo;
 	}
-
-	public static Memo search(ArrayList<Memo> memoList, String date) {
-		for (int i = 0; i < memoList.size(); i++) {
-			if (memoList.get(i).getDate().equals(date)) {
-				return memoList.get(i);
-			}
-		}
-		return null;
-	}
-
 	public void setMemo(String memo) {
 		this.memo = memo;
 	}
-
 	public String getDate() {
 		return date;
 	}
-
 	public String getMemo() {
 		return memo;
+	}
+	public static String search(String date) {
+		String resultSet = JdbcSQLiteConnection.selectFrom(date);
+		return resultSet;
 	}
 
 }

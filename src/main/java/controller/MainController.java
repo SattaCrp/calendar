@@ -8,14 +8,13 @@ import view.View;
 
 public class MainController {
 	private View view;
-	private ArrayList<Memo> memoList;
 
 	public void startApplication() {
 		view = new View();
-		memoList = new ArrayList<>();
 		view.initFream();
 		view.getBtnShow().addActionListener(new ShowActionlistener(view));
-		view.getBtnSub().addActionListener(new SubmitAc(view, memoList));
-		view.getBtnEnter().addActionListener(new ShowMemoAc(view, memoList));
+		view.getBtnSub().addActionListener(new SubmitAc(view));
+		view.getBtnEnter().addActionListener(new ShowMemoAc(view));
+		view.getBtndel().addActionListener(new DeleteAc(view));
 	}
 }

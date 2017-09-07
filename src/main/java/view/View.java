@@ -18,6 +18,7 @@ public class View {
 	private JButton btnShow;
 	private JButton btnEnter;
 	private JButton btnSub;
+	private JButton btndel;
 	private JTextArea areaMemo;
 
 	public View() {
@@ -61,16 +62,21 @@ public class View {
 
 		JPanel panel03 = new JPanel();
 		contentPane.add(panel03, BorderLayout.SOUTH);
-		panel03.setLayout(new GridLayout(0, 2, 0, 0));
+		panel03.setLayout(new GridLayout(0, 3, 0, 0));
 
 		btnEnter = new JButton("Show Memo");
 		btnSub = new JButton("Submit");
+		btndel = new JButton("Delete");
 		panel03.add(btnEnter);
 		panel03.add(btnSub);
+		panel03.add(btndel);
+		
 
 		frame.pack();
 	}
-
+	public JButton getBtndel() {
+		return btndel;
+	}
 	public JButton getBtnShow() {
 		return btnShow;
 	}

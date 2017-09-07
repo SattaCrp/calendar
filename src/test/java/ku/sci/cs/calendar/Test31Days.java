@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import controller.ShowActionlistener;
-import model.Date;
 import model.Memo;
 import view.View;
 
@@ -20,7 +19,7 @@ public class Test31Days {
 		view.initFream();
 		int year = Integer.parseInt(view.getComboBoxYear().getSelectedItem().toString());
 		int month = view.getComboBoxMonth().getSelectedIndex();
-		Date.showCalender(year, month,view.getComboBoxDay());
+		ShowActionlistener.showCalender(year, month,view.getComboBoxDay());
 		
 		assertEquals(31, view.getComboBoxDay().getItemCount());
 	}
