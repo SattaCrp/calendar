@@ -51,20 +51,25 @@ public class JdbcSQLiteConnection {
 			Statement statement = conn.createStatement();
 			ResultSet resultSet = statement.executeQuery(query);
 			while (resultSet.next()) {
+				System.out.println("---------" + date +"-----"+resultSet.getString(1)+resultSet.getString(2)+resultSet.getString(3));
 			if (date.equals(resultSet.getString(1)+resultSet.getString(2)+resultSet.getString(3))){
 				String result = resultSet.getString(4);
 				conn.close();
 				System.out.println(conn.isClosed());
 				return result;
 			}
-			conn.close();
-			System.out.println(conn.isClosed());
-			return null;
 		}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			try {
+				Connection conn = DriverManager.getConnection(dbURL);
+				String query = "create table memolist ( day text, month text, year text, memo text);";
+				Statement statement = conn.createStatement();
+				statement.execute(query);
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 		}
-		
 		return null;
 	}
 

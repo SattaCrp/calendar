@@ -7,5 +7,6 @@ public class AppRun {
 		MainController main = new MainController();
 		main.startApplication();
 		JdbcSQLiteConnection.checkConnect();
+		JdbcSQLiteConnection.selectFrom("");
 	}
 }
