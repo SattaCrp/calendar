@@ -1,3 +1,7 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import controller.MainController;
 import model.JdbcSQLiteConnection;
 
@@ -7,6 +11,8 @@ public class AppRun {
 		MainController main = new MainController();
 		main.startApplication();
 		JdbcSQLiteConnection.checkConnect();
-		JdbcSQLiteConnection.selectFrom("");
+		JdbcSQLiteConnection.selectFromMemoList("");
+		JdbcSQLiteConnection.selectFromDiaryList("");
+	
 	}
 }

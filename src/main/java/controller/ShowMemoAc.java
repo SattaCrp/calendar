@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JButton;
 
@@ -30,6 +31,26 @@ public class ShowMemoAc implements ActionListener {
 		} else {
 				view.getAreaMemo().setText(resultSet);
 		}
+		
+		String day = Integer.toString((int) view.getComboBoxDay().getSelectedItem());
+		String[] diaryList = JdbcSQLiteConnection.selectFromDiaryList(day);
+		String set = "";
+		Date dateO = new Date(Integer.parseInt((String) view.getComboBoxYear().getSelectedItem()), view.getComboBoxMonth().getSelectedIndex(),(int) view.getComboBoxDay().getSelectedItem() );
+		if (diaryList[0] != "") {
+			set = set+"for every month on this day : " + diaryList[0]+"\n";
+		}
+		if (diaryList[1] != "") {
+			set = set+"every day : " + diaryList[1]+"\n";
+		}
+		
+		for(int i = 2 ; i < diaryList.length ;i++ ){
+			System.out.println(diaryList[i]);
+			if(diaryList[i]!="" && i==dateO.getDay()+2){
+				set = set + "today : " + diaryList[i]+"\n";
+			}
+		}
+		System.out.println(set);
+		view.getAreaDairy().setText(set);
 	}
 
 }

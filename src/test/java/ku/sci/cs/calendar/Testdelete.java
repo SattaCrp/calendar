@@ -11,6 +11,6 @@ public class Testdelete {
 	public void test() {
 		JdbcSQLiteConnection.insertInto("4", "May", "2000", "No game");
 		JdbcSQLiteConnection.deleteItem("4", "May", "2000");
-		assertEquals(JdbcSQLiteConnection.selectFrom("4May2000"),null);
+		assertEquals(JdbcSQLiteConnection.selectFromMemoList("4May2000"),null);
 	}
 }

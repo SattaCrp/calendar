@@ -22,7 +22,7 @@ public class Memo {
 		return memo;
 	}
 	public static String search(String date) {
-		String resultSet = JdbcSQLiteConnection.selectFrom(date);
+		String resultSet = JdbcSQLiteConnection.selectFromMemoList(date);
 		return resultSet;
 	}
 

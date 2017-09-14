@@ -24,7 +24,7 @@ public class ShowActionlistener implements ActionListener{
 //calculate date --------------------------------------------------------
 	public static void showCalender(int yearSelect, int monthSelect , JComboBox comboBoxDay ) {
 		int[] monthDay = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-		int year = 1900;
+		int year = 2010;
 		int month = 0;
 		int day = 2;
 		while (check(yearSelect, monthSelect, year, month)) {
@@ -67,7 +67,7 @@ public class ShowActionlistener implements ActionListener{
 				ans = true;
 			}
 		}
-		return false;
+		return ans;
 	}
 
 	private static boolean check(int comboBoxYear, int comboBoxMonth, int year, int month) {

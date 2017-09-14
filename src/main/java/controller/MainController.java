@@ -12,9 +12,17 @@ public class MainController {
 	public void startApplication() {
 		view = new View();
 		view.initFream();
-		view.getBtnShow().addActionListener(new ShowActionlistener(view));
+		
+		int year = Integer.parseInt(view.getComboBoxYear().getSelectedItem().toString());
+		int month = view.getComboBoxMonth().getSelectedIndex();
+		ShowActionlistener.showCalender(year, month,view.getComboBoxDay());
+		view.getBtnDiaryDel().addActionListener(new DeleteDiary(view));
+		view.getComboBoxMonth().addActionListener(new ShowActionlistener(view));
+		view.getComboBoxYear().addActionListener(new ShowActionlistener(view));
 		view.getBtnSub().addActionListener(new SubmitAc(view));
 		view.getBtnEnter().addActionListener(new ShowMemoAc(view));
 		view.getBtndel().addActionListener(new DeleteAc(view));
+		view.getBtnDiarySub().addActionListener(new SubmitDiary(view));
+		
 	}
 }
