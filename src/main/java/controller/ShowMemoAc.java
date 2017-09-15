@@ -36,21 +36,22 @@ public class ShowMemoAc implements ActionListener {
 		String[] diaryList = JdbcSQLiteConnection.selectFromDiaryList(day);
 		String set = "";
 		Date dateO = new Date(Integer.parseInt((String) view.getComboBoxYear().getSelectedItem()), view.getComboBoxMonth().getSelectedIndex(),(int) view.getComboBoxDay().getSelectedItem() );
-		if (diaryList[0] != "") {
+		if (diaryList[0]!="") {
 			set = set+"for every month on this day : " + diaryList[0]+"\n";
 		}
-		if (diaryList[1] != "") {
+		if (!diaryList[1].equals("null")) {
 			set = set+"every day : " + diaryList[1]+"\n";
 		}
 		
 		for(int i = 2 ; i < diaryList.length ;i++ ){
-			System.out.println(diaryList[i]);
-			if(diaryList[i]!="" && i==dateO.getDay()+2){
+			System.out.println(diaryList[i].equals("null"));
+			if(!diaryList[i].equals("null") && i==dateO.getDay()+2){
 				set = set + "today : " + diaryList[i]+"\n";
 			}
 		}
 		System.out.println(set);
 		view.getAreaDairy().setText(set);
+		
 	}
 
 }

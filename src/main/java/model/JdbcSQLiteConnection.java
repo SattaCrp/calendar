@@ -106,6 +106,10 @@ public class JdbcSQLiteConnection {
 				String query = "create table diarylist ( day text , memo text ,diary integer);";
 				Statement statement = conn.createStatement();
 				statement.execute(query);
+				for(int i =0 ; i < 8;i++){
+				query = "insert into diarylist (memo,diary) values ('', " + i +")";
+				statement.execute(query);
+				}
 				conn.close();
 				System.out.println(conn.isClosed());
 			} catch (SQLException e1) {
