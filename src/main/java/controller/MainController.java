@@ -1,8 +1,6 @@
 package controller;
 
 import java.util.ArrayList;
-
-
 import model.Memo;
 import view.View;
 
