@@ -7,7 +7,7 @@ import model.JdbcSQLiteConnection;
 import view.View;
 
 public class AppRun {
-	
+	//satta crpkosol 5810451055
 	public static void main(String[] args) {
 		
 		View view = new View(900,500);
