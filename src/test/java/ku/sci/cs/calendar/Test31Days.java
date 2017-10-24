@@ -14,8 +14,7 @@ public class Test31Days {
 
 	@Test
 	public void test() {
-		View view = new View();
-		ArrayList<Memo> memoList = new ArrayList<>();
+		View view = new View(900,500);
 		view.initFream();
 		int year = Integer.parseInt(view.getComboBoxYear().getSelectedItem().toString());
 		int month = view.getComboBoxMonth().getSelectedIndex();

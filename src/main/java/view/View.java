@@ -8,8 +8,8 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 public class View {
-	private int FRAME_WIDTH = 900;
-	private int FRAME_HEIGHT = 500;
+	private int FRAME_WIDTH;
+	private int FRAME_HEIGHT;
 	private JFrame frame;
 	private JPanel contentPane;
 	private JComboBox comboBoxDay;
@@ -32,7 +32,9 @@ public class View {
 	private JButton btnDiarySub;
 	private JButton btnDiaryDel;
 
-	public View() {
+	public View(int width , int height) {
+		FRAME_HEIGHT = height;
+		FRAME_WIDTH = width;
 		frame = new JFrame("Calendar.");
 	}
 
@@ -73,7 +75,6 @@ public class View {
 		panel02.add(areaDairy);
 		
 		JPanel panel03 = new JPanel();
-//		contentPane.add(panel03, BorderLayout.SOUTH);
 		panel03.setLayout(new GridLayout(0, 3, 0, 0));
 
 		btnEnter = new JButton("Show Memo");

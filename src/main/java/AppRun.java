@@ -4,11 +4,14 @@ import java.util.Date;
 
 import controller.MainController;
 import model.JdbcSQLiteConnection;
+import view.View;
 
 public class AppRun {
 	
 	public static void main(String[] args) {
-		MainController main = new MainController();
+		
+		View view = new View(900,500);
+		MainController main = new MainController(view);
 		main.startApplication();
 		JdbcSQLiteConnection.checkConnect();
 		JdbcSQLiteConnection.selectFromMemoList("");

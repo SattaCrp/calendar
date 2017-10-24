@@ -6,9 +6,12 @@ import view.View;
 
 public class MainController {
 	private View view;
+	
+	public MainController(View view){
+		this.view = view;
+	}
 
 	public void startApplication() {
-		view = new View();
 		view.initFream();
 		
 		int year = Integer.parseInt(view.getComboBoxYear().getSelectedItem().toString());
